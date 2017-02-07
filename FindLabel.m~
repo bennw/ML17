@@ -1,4 +1,0 @@
-function [ output_args ] = FindLabel( tree, example )
-    if tree
-end
-
