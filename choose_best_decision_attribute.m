@@ -32,7 +32,7 @@ function [ bestAttr ] = choose_best_decision_attribute( examples, attributes, bi
           Ipini = - sum(v(v>0).*log2(v(v>0)));
           gain = gain - ((at1/t) * Ipini);
       end
-      if gain >= maxGain
+      if gain > maxGain
           maxGain = gain;
           bestAttr = attribute;
       end

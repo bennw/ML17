@@ -4,5 +4,7 @@ function [ ] = GenerateInputs( x,y,emotion )
     yin = y == emotion;
     tree = DecisionTreeLearning(xin,ain,yin);
     DrawDecisionTree(tree, 'Tree');
+    %TestExample = x(1,:);
+    %output = FindLabel(tree, TestExample)
 end
 
