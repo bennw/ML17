@@ -3,8 +3,10 @@ function [ ] = GenerateInputs( x,y,emotion )
     xin = x;
     yin = y == emotion;
     tree = DecisionTreeLearning(xin,ain,yin);
+    for i=1:20
+        TestExample = x(i,:);
+        output = FindLabel(tree, TestExample)
+    end
     DrawDecisionTree(tree, 'Tree');
-    %TestExample = x(1,:);
-    %output = FindLabel(tree, TestExample)
 end
 
