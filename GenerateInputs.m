@@ -1,12 +1,10 @@
-function [ ] = GenerateInputs( x,y,emotion )
+function [ ] = GenerateInputs( x,y )
     ain = 1:1:45;
     xin = x;
-    yin = y == emotion;
-    tree = DecisionTreeLearning(xin,ain,yin);
-    for i=1:20
-        TestExample = x(i,:);
-        output = FindLabel(tree, TestExample)
+    for i=1:6
+        trees(i) = DecisionTreeLearning(xin,ain,y==i);
     end
-    DrawDecisionTree(tree, 'Tree');
+    a = testTrees(trees, x(1:20,:))
+    %DrawDecisionTree(tree(1), 'Tree');
 end
 
