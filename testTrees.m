@@ -14,10 +14,11 @@ for t=1:n_cases
     end
     if size(prediction) == 1
         o(t) = prediction(1);
+        % CLASSIFICATION CRITERIA: pick best emotion at random
     elseif size(prediction) == 0
-        o(t) = 0;%randi(6);
+        o(t) = randi(6);
     else
-        o(t) = -1;%prediction(randi(numel(prediction)));
+        o(t) = prediction(randi(numel(prediction)));
     end
 end
 % end of fxn

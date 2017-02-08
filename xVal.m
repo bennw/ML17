@@ -19,7 +19,7 @@ for i=0:9
     for j=1:6
       tree{j} = DecisionTreeLearning(trainX, 1:45, trainY==j);
     end
-    results = testTrees(tree, testX(1:foldSize,:));
+    results = testTrees(tree, testX(1:foldSize,:)); % see testTrees.m for classification criteria
 
     output = [output results];
     yutput = [yutput transpose(testY)];
