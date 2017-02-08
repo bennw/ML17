@@ -1,4 +1,4 @@
-function [ output, yutput ] = xVal( x, y )
+function [ hitrate ] = xVal( x, y )
 
 
 foldSize = floor(size(x, 1) / 10);
@@ -19,16 +19,16 @@ for i=0:9
     for j=1:6
       tree{j} = DecisionTreeLearning(trainX, 1:45, trainY==j);
     end
-    
-    results = zeros(foldSize, 6);
-    for k=1:foldSize
-        for j=1:6
-          results(k, j) = evalTree(tree{j}, testX(k, :));
-        end
-    end
-    
-    output = [output; results];
-    yutput = [yutput; testY];
+    results = testTrees(tree, testX(1:foldSize,:));
+
+    output = [output results];
+    yutput = [yutput transpose(testY)];
+
+end
+
+% following 2 lines: calculate hit rate
+diff = output==yutput;
+hitrate = sum(diff)/size(diff,2);
 
 end
 
