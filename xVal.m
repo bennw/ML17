@@ -17,7 +17,7 @@ for i=0:9
     tree = {};
     for j=1:6
       tree{j} = DecisionTreeLearning(trainX, 1:45, trainY==j);
-      DrawDecisionTree(tree{j});
+      %DrawDecisionTree(tree{j});
     end
     results = testTrees(tree, testX(1:foldSize,:)); % see testTrees.m for classification criteria
     output = [output results];
