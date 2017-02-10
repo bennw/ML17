@@ -1,4 +1,5 @@
-function [ classification_rate Recall Precision F1 C_matrix tree ] = xVal( x, y )
+function [ classification_rate C_matrix ] = xVal( x, y )
+
 
 foldSize = floor(size(x, 1) / 10);
 
@@ -17,9 +18,10 @@ for i=0:9
     tree = {};
     for j=1:6
       tree{j} = DecisionTreeLearning(trainX, 1:45, trainY==j);
-      DrawDecisionTree(tree{j});
+      %DrawDecisionTree(tree{j});
     end
     results = testTrees(tree, testX(1:foldSize,:)); % see testTrees.m for classification criteria
+
     output = [output results];
     yutput = [yutput transpose(testY)];
 
@@ -31,9 +33,10 @@ classification_rate = sum(diff)/size(diff,2);
 
 C_matrix = xValConfusion( output, yutput );
 
-norm_C_matrix = normalise(C_matrix);
 
-[Recall Precision F1] = Classification_Measure(norm_C_matrix);
+
+[Recall Precision F1] = Classification_Measure(C_matrix);
+
 
 
 end
