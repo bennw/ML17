@@ -1,4 +1,4 @@
-function [ classification_rate Recall Precision F1 C_matrix tree ] = xVal( x, y )
+function [ classification_rate, Recall, Precision, F1, C_matrix, tree ] = xVal( x, y )
 
 foldSize = floor(size(x, 1) / 10);
 
@@ -17,9 +17,10 @@ for i=0:9
     tree = {};
     for j=1:6
       tree{j} = DecisionTreeLearning(trainX, 1:45, trainY==j);
-      DrawDecisionTree(tree{j});
+      % DrawDecisionTree(tree{j});
     end
-    results = testTrees(tree, testX(1:foldSize,:)); % see testTrees.m for classification criteria
+    results = testTrees(tree, testX(1:foldSize,:)); % for random scheme
+    %results = testTreesWithDepth(tree, testX(1:foldSize,:)); % for min depth scheme
     output = [output results];
     yutput = [yutput transpose(testY)];
 
@@ -33,7 +34,7 @@ C_matrix = xValConfusion( output, yutput );
 
 norm_C_matrix = normalise(C_matrix);
 
-[Recall Precision F1] = Classification_Measure(norm_C_matrix);
+[Recall, Precision, F1] = Classification_Measure(norm_C_matrix);
 
 
 end
