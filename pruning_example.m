@@ -5,7 +5,7 @@ function pruning_example(x,y)
 
 tree = classregtree(x,y,'method','classification','categorical',1:45,'minparent',1,'prune','off');
 
-[cost,s,nodes,bestLevel] = test(tree,'cross',x,y);
+[cost,s,nodes,bestLevel] = test(tree,'c',x,y);
 [cost2,s2,nodes2,bestLevel2] = test(tree,'resubstitution');
 
 prunedTree = prune(tree,'level',bestLevel);

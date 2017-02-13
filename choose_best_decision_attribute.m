@@ -1,4 +1,4 @@
-function [ bestAttr maxGain ] = choose_best_decision_attribute( examples, attributes, binary_targets )
+function [ bestAttr, maxGain ] = choose_best_decision_attribute( examples, attributes, binary_targets )
 %UNTITLED Summary of this function goes here
 %   Detailed explanation goes here
 

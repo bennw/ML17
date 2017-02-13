@@ -94,7 +94,7 @@ if ~isempty(tree.kids)
         line([tree.X kid.X], [tree.Y kid.Y]);
     end
     line(tree.X, tree.Y, 'marker', '^', 'markersize', 8)
-    opText = tree.op;
+    opText = tree.gain;
 %     text(tree.X, tree.Y, ['  ' opText], 'HorizontalAlignment', 'left', 'interpreter', 'none')
     text(tree.X, tree.Y,num2str(opText),'HorizontalAlignment', 'right', 'VerticalAlignment', 'bottom','interpreter', 'none');
 else
