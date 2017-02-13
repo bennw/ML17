@@ -10,7 +10,11 @@ The following files were provided as-is from http://ibug.doc.ic.ac.uk/courses
 Following are a brief description of the remaining files relevant to the CBC submission:
 - trees_clean.mat: contains a vector of the six trees trained on the clean dataset
 - GenerateCleanTrees.m: code used to generate the above file
-- xVal.m: performs 10-fold cross validation, generating confusion matrix
+|--- DecisionTreeLearning.m
+   |--- choose_best_decision_attribute.m - Chooses the best attribute
+- xVal.m: performs 10-fold cross validation, generating confusion matrix.
+          The ambiguity resolution method can be selected by commenting out the appropriate lines.
+
 
 The following files contain functions as required by the CBC specification:
 - testTrees.m
