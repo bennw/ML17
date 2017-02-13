@@ -19,8 +19,8 @@ for i=0:9
       tree{j} = DecisionTreeLearning(trainX, 1:45, trainY==j);
       % DrawDecisionTree(tree{j});
     end
-    results = testTrees(tree, testX(1:foldSize,:)); % for random scheme
-    %results = testTreesWithDepth(tree, testX(1:foldSize,:)); % for min depth scheme
+    %results = testTrees(tree, testX(1:foldSize,:)); % for random scheme
+    results = testTreesWithDepth(tree, testX(1:foldSize,:)); % for min depth scheme
     output = [output results];
     yutput = [yutput transpose(testY)];
 
