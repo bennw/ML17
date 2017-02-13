@@ -12,7 +12,7 @@ function [ o, d, g ] = FindLabel( tree, example )
         g = 0;
     else
         branchTaken = example(tree.op);
-        [o, d, g] = FindLabel(tree.kids{branchTaken+1}, example, tree.gain);
+        [o, d, g] = FindLabel(tree.kids{branchTaken+1}, example);
         d = d + 1;
         g = g + tree.gain;
     end

@@ -1,0 +1,19 @@
+The following files were provided as-is from http://ibug.doc.ic.ac.uk/courses
+- DrawDecisionTree.m
+- emolab2str.m
+- pruning_example.m
+- str2emolab.m
+- treeprune.m
+- cleandata_students.mat
+- noisydata_students.mat
+
+Following are a brief description of the remaining files relevant to the CBC submission:
+- trees_clean.mat: contains a vector of the six trees trained on the clean dataset
+- GenerateCleanTrees.m: code used to generate the above file
+- xVal.m: performs 10-fold cross validation, generating confusion matrix
+
+The following files contain functions as required by the CBC specification:
+- testTrees.m
+
+The following file is the report:
+- Report.pdf
