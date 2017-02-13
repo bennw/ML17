@@ -14,3 +14,6 @@ Following are a brief description of the remaining files relevant to the CBC sub
 
 The following files contain functions as required by the CBC specification:
 - testTrees.m
+
+The following file is the report:
+- Report.pdf
