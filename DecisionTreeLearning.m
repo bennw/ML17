@@ -18,16 +18,10 @@ function [ tree ] = DecisionTreeLearning( examples,attributes,binary_targets )
         tree.kids = [];
         tree.class = n_ones >= n_zeroes;
     else
-        best_attr = choose_best_decision_attribute( examples,attributes,binary_targets );
-        if best_attr == 42
-            %print('wtf');
-            % no attribute provides info gain (because 
-            %tree.op = [];
-            %tree.kids = [];
-            %tree.class = n_ones > n_zeroes;
-        end
+        [best_attr, gain] = choose_best_decision_attribute( examples,attributes,binary_targets );
         tree.op = best_attr;
         tree.class = [];
+        tree.gain = gain;
         for i = 0:1:1
             examples_i = examples(examples(:, best_attr) == i, :);
             binary_targets_i = binary_targets(examples(:, best_attr) == i, :);
